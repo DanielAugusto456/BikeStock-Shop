@@ -15,7 +15,7 @@ namespace Logica_de_negocio
             repositorio.IngresarUsuario(username, password, rol);
         }
 
-        public bool ValidarUsuario(string username, string password)
+        public Datos.UserRepository.Usuario ValidarUsuario(string username, string password)
         {
             return repositorio.ValidarUsuario(username, password);
         }

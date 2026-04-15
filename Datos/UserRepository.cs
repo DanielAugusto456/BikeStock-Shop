@@ -10,7 +10,7 @@ namespace Datos
 {
     public class UserRepository
     {
-        class Usuario
+        public class Usuario
         {
             public string Username { get; set; }
             public string Password { get; set; }
@@ -34,9 +34,10 @@ namespace Datos
             }
         }
 
-        public bool ValidarUsuario(string username, string password)
+        public Usuario ValidarUsuario(string username, string password)
         {
             string query = "exec sp_ValidarUsuario @Username = @A1, @Password = @A2";
+            Usuario usuario = null;
             using (SqlConnection cxn = new SqlConnection(cnn.db))
             {
                 cxn.Open();
@@ -45,9 +46,22 @@ namespace Datos
                     cmd.Parameters.AddWithValue("@A1", username);
                     cmd.Parameters.AddWithValue("@A2", password);
 
-                    int result = (int)cmd.ExecuteScalar();
-
-                    return result == 1;
+                    using (SqlDataReader rd = cmd.ExecuteReader()) { 
+                        if (rd.Read())
+                        {
+                            usuario = new Usuario
+                            {
+                                Username = rd["Username"].ToString(),
+                                Password = rd["Password"].ToString(),
+                                Rol = Convert.ToInt32(rd["Rol"])
+                            };
+                            return usuario;
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
                 }
             }
         }

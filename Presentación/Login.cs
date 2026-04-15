@@ -28,9 +28,14 @@ namespace Presentación
             {
                 if (txt_password.Text != string.Empty)
                 {
-                    if (logica.ValidarUsuario(txt_username.Text, txt_password.Text))
+                    var usuario = logica.ValidarUsuario(txt_username.Text, txt_password.Text);
+                    if (usuario != null)
                     {
                         MessageBox.Show("¡Bienvenido, " + txt_username.Text + "!", "Login exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Menu menu = new Menu(usuario.Username, usuario.Rol == 1 ? "Administrador" : "Usuario");
+                        menu.Owner = this;
+                        this.Hide();
+                        menu.Show();
                     }
                     else
                     {
