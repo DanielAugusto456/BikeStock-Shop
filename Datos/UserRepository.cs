@@ -14,11 +14,12 @@ namespace Datos
         {
             public string Username { get; set; }
             public string Password { get; set; }
+            public int Rol { get; set; }
         }
 
-        public void IngresarUsuario(string username, string password)
+        public void IngresarUsuario(string username, string password, int rol)
         {
-            string query = "exec sp_InsertarUsuario @Username = @A1, @Password = @A2";
+            string query = "exec sp_InsertarUsuario @Username = @A1, @Password = @A2, @Rol = @A3";
 
             using (SqlConnection cxn = new SqlConnection(cnn.db))
             {
@@ -27,6 +28,7 @@ namespace Datos
                 {
                     cmd.Parameters.AddWithValue("@A1", username);
                     cmd.Parameters.AddWithValue("@A2", password);
+                    cmd.Parameters.AddWithValue("@A3", rol);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -50,17 +52,18 @@ namespace Datos
             }
         }
 
-        public void ActualizarUsuario(int id, string username, string password)
+        public void ActualizarUsuario(int id, string username, string password, int rol)
         {
-            string query = "exec sp_ActualizarUsuario @Id = @A1, @UserName = @A2, @Password = @A3";
+            string query = "exec sp_ActualizarUsuario @Id = @A1, @UserName = @A2, @Password = @A3, @Rol = @A4";
             using (SqlConnection cxn = new SqlConnection(cnn.db))
             {
                 cxn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, cxn))
                 {
-                    cmd.Parameters.AddWithValue("A@1", id);
-                    cmd.Parameters.AddWithValue("A@2", username);
-                    cmd.Parameters.AddWithValue("A@3", password);
+                    cmd.Parameters.AddWithValue("@A1", id);
+                    cmd.Parameters.AddWithValue("@A2", username);
+                    cmd.Parameters.AddWithValue("@A3", password);
+                    cmd.Parameters.AddWithValue("@A4", rol);
 
                     cmd.ExecuteNonQuery();
                 }

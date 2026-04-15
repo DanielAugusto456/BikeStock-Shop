@@ -10,9 +10,9 @@ namespace Logica_de_negocio
     {
         Datos.UserRepository repositorio = new Datos.UserRepository();
 
-        public void IngresarUsuario(string username, string password)
+        public void IngresarUsuario(string username, string password, int rol)
         {
-            repositorio.IngresarUsuario(username, password);
+            repositorio.IngresarUsuario(username, password, rol);
         }
 
         public bool ValidarUsuario(string username, string password)
@@ -20,9 +20,9 @@ namespace Logica_de_negocio
             return repositorio.ValidarUsuario(username, password);
         }
 
-        public void ActualizarUsuario(int id, string username, string password)
+        public void ActualizarUsuario(int id, string username, string password, int rol)
         {
-            repositorio.ActualizarUsuario(id, username, password);
+            repositorio.ActualizarUsuario(id, username, password, rol);
         }
 
         public void EliminarUsuario(int id)
