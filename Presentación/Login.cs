@@ -19,7 +19,7 @@ namespace Presentación
         }
         private void btn_salir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void btn_ingresar_Click(object sender, EventArgs e)

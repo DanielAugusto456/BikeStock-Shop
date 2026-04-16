@@ -27,5 +27,10 @@ namespace Logica_de_negocio
         {
             repositorio.EliminarBicicleta(id);
         }
+
+        public void ActualizarStock(int id, int disponible, int reparacion)
+        {
+            repositorio.ActualizarStock(id, disponible, reparacion);
+        }
     }
 }

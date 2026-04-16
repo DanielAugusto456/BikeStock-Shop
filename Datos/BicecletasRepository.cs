@@ -48,12 +48,11 @@ namespace Datos
                 cxn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, cxn))
                 {
+                    cmd.Parameters.AddWithValue("@A1", marca ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@A2", modelo ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@A3", color ?? (object)DBNull.Value);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        cmd.Parameters.AddWithValue("@A1", marca ?? (object)DBNull.Value);
-                        cmd.Parameters.AddWithValue("@A2", modelo ?? (object)DBNull.Value);
-                        cmd.Parameters.AddWithValue("@A3", color ?? (object)DBNull.Value);
-
                         while (reader.Read())
                         {
                             bicicletas.Add(new Bicicleta
@@ -73,16 +72,17 @@ namespace Datos
             return bicicletas;
         }
 
-        public void ActualizarStock(int disponible, int reparacion)
+        public void ActualizarStock(int id, int disponible, int reparacion)
         {
-            string query = "exec sp_ActualiarStockBicicleta @Disponible = @A1, @Reparacion = @A2";
+            string query = "exec sp_ActualiarStockBicicleta @Id = @A1, @Disponible = @A2, @Reparacion = @A3";
             using (SqlConnection cxn = new SqlConnection(cnn.db))
             {
                 cxn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, cxn))
                 {
-                    cmd.Parameters.AddWithValue("@A1", disponible);
-                    cmd.Parameters.AddWithValue("@A2", reparacion);
+                    cmd.Parameters.AddWithValue("@A1", id);
+                    cmd.Parameters.AddWithValue("@A2", disponible);
+                    cmd.Parameters.AddWithValue("@A3", reparacion);
                     cmd.ExecuteNonQuery();
                 }
             }
