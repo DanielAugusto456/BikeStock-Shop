@@ -15,7 +15,9 @@ namespace Presentación
         private string username;
         private string rol;
         bool data = false;
-        Logica_de_negocio.LogicaBicicleta Logica = new Logica_de_negocio.LogicaBicicleta();
+        Logica_de_negocio.LogicaBicicleta Logica_bicicleta = new Logica_de_negocio.LogicaBicicleta();
+        Logica_de_negocio.LogicaAccesorios Logica_accesorios = new Logica_de_negocio.LogicaAccesorios();
+        Logica_de_negocio.LogicaUsuarios LogicaUsuarios = new Logica_de_negocio.LogicaUsuarios();
 
         public Menu(string _username, string _rol)
         {
@@ -96,7 +98,7 @@ namespace Presentación
             {
                 if (data != true)
                 {
-                    Logica.IngresarBicicleta(txt_marca_bicicleta.Text, txt_modelo_bicicleta.Text, txt_color_bicicleta.Text, decimal.Parse(txt_precio_bicicleta.Text), 0, 0);
+                    Logica_bicicleta.IngresarBicicleta(txt_marca_bicicleta.Text, txt_modelo_bicicleta.Text, txt_color_bicicleta.Text, decimal.Parse(txt_precio_bicicleta.Text), 0, 0);
                     MessageBox.Show("Bicicleta creada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limpiar_campos_bicicleta();
                 }
@@ -140,7 +142,7 @@ namespace Presentación
             {
                 if (verificar_campos_bicicleta())
                 {
-                    Logica.ActualizarBicicleta(Convert.ToInt32(lbl_codigo_bicicleta.Text), txt_marca_bicicleta.Text, txt_modelo_bicicleta.Text, txt_color_bicicleta.Text, decimal.Parse(txt_precio_bicicleta.Text), Convert.ToInt32(lbl_disponible.Text), Convert.ToInt32(lbl_Reparacion.Text));
+                    Logica_bicicleta.ActualizarBicicleta(Convert.ToInt32(lbl_codigo_bicicleta.Text), txt_marca_bicicleta.Text, txt_modelo_bicicleta.Text, txt_color_bicicleta.Text, decimal.Parse(txt_precio_bicicleta.Text), Convert.ToInt32(lbl_disponible.Text), Convert.ToInt32(lbl_Reparacion.Text));
                     MessageBox.Show("Bicicleta actualizada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limpiar_campos_bicicleta();
                 }
@@ -159,7 +161,7 @@ namespace Presentación
         {
             if (data)
             {
-                Logica.EliminarBicicleta(Convert.ToInt32(lbl_codigo_bicicleta.Text));
+                Logica_bicicleta.EliminarBicicleta(Convert.ToInt32(lbl_codigo_bicicleta.Text));
                 MessageBox.Show("Bicicleta eliminada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 limpiar_campos_bicicleta();
             }
@@ -171,7 +173,120 @@ namespace Presentación
 
         private void btn_bicicletas_Click(object sender, EventArgs e)
         {
+            limpiar_campos_bicicleta();
+            data = false;
+            panel_accesorios.Visible = false;
             panel_bicicletas.Visible = true;
+        }
+
+        // panel de accesorios
+
+        private void btn_accesorios_Click(object sender, EventArgs e)
+        {
+            limpiar_campos_accesorio();
+            data = false;
+            panel_bicicletas.Visible = false;
+            panel_accesorios.Visible = true;
+        }
+
+        private void limpiar_campos_accesorio()
+        {
+            lbl_codigo_accesorio.Text = "";
+            txt_nombre_accesorio.Clear();
+            txt_tipo_accesorio.Clear();
+            txt_marca_accesorio.Clear();
+            txt_precio_accesorio.Clear();
+            txt_stock_accesorio.Clear();
+            data = false;
+        }
+
+        private bool verificar_campos_accesorio()
+        {
+            if (string.IsNullOrWhiteSpace(txt_nombre_accesorio.Text) ||
+                string.IsNullOrWhiteSpace(txt_tipo_accesorio.Text) ||
+                string.IsNullOrWhiteSpace(txt_marca_accesorio.Text) ||
+                string.IsNullOrWhiteSpace(txt_precio_accesorio.Text) ||
+                string.IsNullOrWhiteSpace(txt_stock_accesorio.Text))
+            {
+                MessageBox.Show("Por favor, complete todos los campos del accesorio.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
+
+        private void btn_buscar_accesorio_Click(object sender, EventArgs e)
+        {
+            VentAccesorio ventAccesorio = new VentAccesorio();
+            ventAccesorio.Owner = this;
+            ventAccesorio.ShowDialog();
+
+            if (ventAccesorio.data)
+            {
+                int codigo = ventAccesorio._id;
+                lbl_codigo_accesorio.Text = codigo.ToString();
+                txt_nombre_accesorio.Text = ventAccesorio._nombre;
+                txt_tipo_accesorio.Text = ventAccesorio._tipo;
+                txt_marca_accesorio.Text = ventAccesorio._marca;
+                int precio = ventAccesorio._precio;
+                txt_precio_accesorio.Text = precio.ToString();
+                int stock = ventAccesorio._stock;
+                txt_stock_accesorio.Text = stock.ToString();
+                data = true;
+            }
+        }
+
+        private void btn_crear_accesorio_Click(object sender, EventArgs e)
+        {
+            if (!data)
+            {
+                if (verificar_campos_accesorio())
+                {
+                    Logica_accesorios.InsertarAccesorio(txt_nombre_accesorio.Text, txt_tipo_accesorio.Text, txt_marca_accesorio.Text,
+                        decimal.Parse(txt_precio_accesorio.Text), Convert.ToInt32(txt_stock_accesorio.Text));
+                    MessageBox.Show("Accesorio creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpiar_campos_accesorio();
+                }
+            }
+            else
+            {
+                MessageBox.Show("El accesorio ya existe. Por favor, limpie los campos para crear un nuevo accesorio.", "Accesorio existente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btn_limpiar_accesorio_Click(object sender, EventArgs e)
+        {
+            limpiar_campos_accesorio();
+        }
+
+        private void btn_actualizar_accesorio_Click(object sender, EventArgs e)
+        {
+            if (data)
+            {
+                if (verificar_campos_accesorio())
+                {
+                    Logica_accesorios.ActualizarAccesorio(int.Parse(lbl_codigo_accesorio.Text), txt_nombre_accesorio.Text, txt_tipo_accesorio.Text, txt_marca_accesorio.Text,
+                        decimal.Parse(txt_precio_accesorio.Text), Convert.ToInt32(txt_stock_accesorio.Text));
+                    MessageBox.Show("Accesorio actualizado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpiar_campos_accesorio();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un accesorio para actualizar su información.", "Accesorio no seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void btn_borrar_accesorio_Click(object sender, EventArgs e)
+        {
+            if (data)
+            {
+                Logica_accesorios.EliminarAccesorio(int.Parse(lbl_codigo_accesorio.Text));
+                MessageBox.Show("Accesorio eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                limpiar_campos_accesorio();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un accesorio para eliminarlo.", "Accesorio no seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
