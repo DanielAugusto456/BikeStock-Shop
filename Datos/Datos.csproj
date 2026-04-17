@@ -49,6 +49,9 @@
     <Compile Include="AccesoriosRepository.cs" />
     <Compile Include="BicecletasRepository.cs" />
     <Compile Include="cnn.cs" />
+    <Compile Include="IAccesoriosRepository.cs" />
+    <Compile Include="IBicicletaRepository.cs" />
+    <Compile Include="IUserRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRepository.cs" />

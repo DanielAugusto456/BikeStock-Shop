@@ -69,14 +69,17 @@
             // 
             // txt_username
             // 
+            this.txt_username.AccessibleName = "txt_username";
             this.txt_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_username.Location = new System.Drawing.Point(284, 158);
             this.txt_username.Name = "txt_username";
+            this.txt_username.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txt_username.Size = new System.Drawing.Size(318, 28);
             this.txt_username.TabIndex = 3;
             // 
             // txt_password
             // 
+            this.txt_password.AccessibleName = "txt_password";
             this.txt_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_password.Location = new System.Drawing.Point(284, 291);
             this.txt_password.Name = "txt_password";
@@ -97,6 +100,7 @@
             // 
             // btn_ingresar
             // 
+            this.btn_ingresar.AccessibleName = "btn_ingresar";
             this.btn_ingresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ingresar.Location = new System.Drawing.Point(538, 392);
             this.btn_ingresar.Name = "btn_ingresar";
@@ -108,6 +112,7 @@
             // 
             // Login
             // 
+            this.AccessibleName = "Login";
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 477);

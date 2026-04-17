@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    public class AccesoriosRepository
+    public class AccesoriosRepository : IAccesoriosRepository
     {
         public class Accesorio
         {

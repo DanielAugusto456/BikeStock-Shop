@@ -1,0 +1,38 @@
+﻿<Project Sdk="MSTest.Sdk/3.6.4">
+
+	<PropertyGroup>
+		<TargetFramework>net472</TargetFramework>
+		<RootNamespace>BikeStock.Tests</RootNamespace>
+		<LangVersion>latest</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- Moq para mocks -->
+		<PackageReference Include="Moq" Version="4.20.72" />
+
+		<!-- =============================================== -->
+		<!-- Paquetes para WinAppDriver (VERSIONES COMPATIBLES) -->
+		<!-- =============================================== -->
+
+		<!-- Selenium WebDriver versión 3.141.0 (la más estable y compatible con WinAppDriver) -->
+		<PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+
+		<!-- Selenium Support misma versión -->
+		<PackageReference Include="Selenium.Support" Version="3.141.0" />
+
+		<!-- Appium.WebDriver versión 4.4.5 (compatible con Selenium 3.x) -->
+		<PackageReference Include="Appium.WebDriver" Version="4.4.5" />
+
+		<!-- NOTA: Selenium.WebDriver.ChromeDriver NO es necesario para WinAppDriver -->
+		<!-- Se elimina porque es solo para pruebas de navegador Chrome -->
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Datos\Datos.csproj" />
+		<ProjectReference Include="..\Logica de negocio\Logica de negocio.csproj" />
+	</ItemGroup>
+
+</Project>

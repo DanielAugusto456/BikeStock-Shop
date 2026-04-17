@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label_titulo = new System.Windows.Forms.Label();
+            this.lbl_titulo = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btn_bicicletas = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_accesorios = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_usuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_username = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,6 +40,7 @@
             this.panel_bicicletas = new System.Windows.Forms.Panel();
             this.btn_limpiar_bicicleta = new System.Windows.Forms.Button();
             this.lbl_codigo_bicicleta = new System.Windows.Forms.Label();
+            this.btn_buscar_bicicletas = new System.Windows.Forms.PictureBox();
             this.btn_stock_bicicleta = new System.Windows.Forms.Button();
             this.btn_borrar_bicleta = new System.Windows.Forms.Button();
             this.btn_actualizar_bicicleta = new System.Windows.Forms.Button();
@@ -58,6 +62,7 @@
             this.txt_stock_accesorio = new System.Windows.Forms.TextBox();
             this.btn_limpiar_accesorio = new System.Windows.Forms.Button();
             this.lbl_codigo_accesorio = new System.Windows.Forms.Label();
+            this.btn_buscar_accesorio = new System.Windows.Forms.PictureBox();
             this.btn_borrar_accesorio = new System.Windows.Forms.Button();
             this.btn_actualizar_accesorio = new System.Windows.Forms.Button();
             this.btn_crear_accesorio = new System.Windows.Forms.Button();
@@ -74,8 +79,10 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panel_usuarios = new System.Windows.Forms.Panel();
+            this.btn_cambiar_rol = new System.Windows.Forms.Button();
             this.btn_limpiar_usuario = new System.Windows.Forms.Button();
             this.lbl_id_usuario = new System.Windows.Forms.Label();
+            this.btn_buscar_usuario = new System.Windows.Forms.PictureBox();
             this.btn_borrar_usuario = new System.Windows.Forms.Button();
             this.btn_actualizar_usuario = new System.Windows.Forms.Button();
             this.btn_crear_usuario = new System.Windows.Forms.Button();
@@ -88,37 +95,31 @@
             this.txt_username = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.btn_cambiar_rol = new System.Windows.Forms.Button();
-            this.btn_buscar_usuario = new System.Windows.Forms.PictureBox();
-            this.btn_buscar_accesorio = new System.Windows.Forms.PictureBox();
-            this.btn_buscar_bicicletas = new System.Windows.Forms.PictureBox();
             this.btn_cerrar_sesion = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_bicicletas = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_accesorios = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_usuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel_bicicletas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_bicicletas)).BeginInit();
             this.panel_accesorios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_accesorio)).BeginInit();
             this.panel_usuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_usuario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_accesorio)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_bicicletas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_cerrar_sesion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label_titulo
+            // lbl_titulo
             // 
-            this.label_titulo.AutoSize = true;
-            this.label_titulo.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label_titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_titulo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label_titulo.Location = new System.Drawing.Point(357, 25);
-            this.label_titulo.Name = "label_titulo";
-            this.label_titulo.Size = new System.Drawing.Size(232, 38);
-            this.label_titulo.TabIndex = 0;
-            this.label_titulo.Text = "Menu Principal";
+            this.lbl_titulo.AccessibleName = "lbl_titulo";
+            this.lbl_titulo.AutoSize = true;
+            this.lbl_titulo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lbl_titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_titulo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbl_titulo.Location = new System.Drawing.Point(357, 25);
+            this.lbl_titulo.Name = "lbl_titulo";
+            this.lbl_titulo.Size = new System.Drawing.Size(232, 38);
+            this.lbl_titulo.TabIndex = 0;
+            this.lbl_titulo.Text = "Menu Principal";
             // 
             // menuStrip1
             // 
@@ -135,6 +136,42 @@
             this.menuStrip1.Size = new System.Drawing.Size(117, 481);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // btn_bicicletas
+            // 
+            this.btn_bicicletas.AccessibleName = "btn_bicicletas";
+            this.btn_bicicletas.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_bicicletas.Image = global::Presentación.Properties.Resources.motor_15611410;
+            this.btn_bicicletas.Margin = new System.Windows.Forms.Padding(0, 130, 0, 0);
+            this.btn_bicicletas.Name = "btn_bicicletas";
+            this.btn_bicicletas.Size = new System.Drawing.Size(104, 49);
+            this.btn_bicicletas.Text = "Bicicletas";
+            this.btn_bicicletas.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.btn_bicicletas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_bicicletas.Click += new System.EventHandler(this.btn_bicicletas_Click);
+            // 
+            // btn_accesorios
+            // 
+            this.btn_accesorios.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_accesorios.Image = global::Presentación.Properties.Resources.helmet_5529439;
+            this.btn_accesorios.Margin = new System.Windows.Forms.Padding(0, 40, 0, 0);
+            this.btn_accesorios.Name = "btn_accesorios";
+            this.btn_accesorios.Size = new System.Drawing.Size(102, 49);
+            this.btn_accesorios.Text = "Accesorios";
+            this.btn_accesorios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_accesorios.Click += new System.EventHandler(this.btn_accesorios_Click);
+            // 
+            // btn_usuarios
+            // 
+            this.btn_usuarios.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_usuarios.Image = global::Presentación.Properties.Resources.people_2406416;
+            this.btn_usuarios.Margin = new System.Windows.Forms.Padding(0, 40, 0, 0);
+            this.btn_usuarios.Name = "btn_usuarios";
+            this.btn_usuarios.Size = new System.Drawing.Size(104, 49);
+            this.btn_usuarios.Text = "Usuarios";
+            this.btn_usuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_usuarios.Visible = false;
+            this.btn_usuarios.Click += new System.EventHandler(this.btn_usuarios_Click);
             // 
             // label1
             // 
@@ -229,6 +266,18 @@
             this.lbl_codigo_bicicleta.Name = "lbl_codigo_bicicleta";
             this.lbl_codigo_bicicleta.Size = new System.Drawing.Size(0, 22);
             this.lbl_codigo_bicicleta.TabIndex = 18;
+            // 
+            // btn_buscar_bicicletas
+            // 
+            this.btn_buscar_bicicletas.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_buscar_bicicletas.Image = global::Presentación.Properties.Resources.zoom_9777349;
+            this.btn_buscar_bicicletas.Location = new System.Drawing.Point(248, 26);
+            this.btn_buscar_bicicletas.Name = "btn_buscar_bicicletas";
+            this.btn_buscar_bicicletas.Size = new System.Drawing.Size(36, 33);
+            this.btn_buscar_bicicletas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_buscar_bicicletas.TabIndex = 9;
+            this.btn_buscar_bicicletas.TabStop = false;
+            this.btn_buscar_bicicletas.Click += new System.EventHandler(this.btn_buscar_bicicletas_Click);
             // 
             // btn_stock_bicicleta
             // 
@@ -449,6 +498,18 @@
             this.lbl_codigo_accesorio.Size = new System.Drawing.Size(0, 22);
             this.lbl_codigo_accesorio.TabIndex = 18;
             // 
+            // btn_buscar_accesorio
+            // 
+            this.btn_buscar_accesorio.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_buscar_accesorio.Image = global::Presentación.Properties.Resources.zoom_9777349;
+            this.btn_buscar_accesorio.Location = new System.Drawing.Point(248, 26);
+            this.btn_buscar_accesorio.Name = "btn_buscar_accesorio";
+            this.btn_buscar_accesorio.Size = new System.Drawing.Size(36, 33);
+            this.btn_buscar_accesorio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_buscar_accesorio.TabIndex = 9;
+            this.btn_buscar_accesorio.TabStop = false;
+            this.btn_buscar_accesorio.Click += new System.EventHandler(this.btn_buscar_accesorio_Click);
+            // 
             // btn_borrar_accesorio
             // 
             this.btn_borrar_accesorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -616,6 +677,17 @@
             this.panel_usuarios.TabIndex = 21;
             this.panel_usuarios.Visible = false;
             // 
+            // btn_cambiar_rol
+            // 
+            this.btn_cambiar_rol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cambiar_rol.Location = new System.Drawing.Point(341, 129);
+            this.btn_cambiar_rol.Name = "btn_cambiar_rol";
+            this.btn_cambiar_rol.Size = new System.Drawing.Size(110, 34);
+            this.btn_cambiar_rol.TabIndex = 20;
+            this.btn_cambiar_rol.Text = "Cambiar";
+            this.btn_cambiar_rol.UseVisualStyleBackColor = true;
+            this.btn_cambiar_rol.Click += new System.EventHandler(this.btn_cambiar_rol_Click);
+            // 
             // btn_limpiar_usuario
             // 
             this.btn_limpiar_usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -635,6 +707,18 @@
             this.lbl_id_usuario.Name = "lbl_id_usuario";
             this.lbl_id_usuario.Size = new System.Drawing.Size(0, 22);
             this.lbl_id_usuario.TabIndex = 18;
+            // 
+            // btn_buscar_usuario
+            // 
+            this.btn_buscar_usuario.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_buscar_usuario.Image = global::Presentación.Properties.Resources.zoom_9777349;
+            this.btn_buscar_usuario.Location = new System.Drawing.Point(248, 26);
+            this.btn_buscar_usuario.Name = "btn_buscar_usuario";
+            this.btn_buscar_usuario.Size = new System.Drawing.Size(36, 33);
+            this.btn_buscar_usuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_buscar_usuario.TabIndex = 9;
+            this.btn_buscar_usuario.TabStop = false;
+            this.btn_buscar_usuario.Click += new System.EventHandler(this.btn_buscar_usuario_Click);
             // 
             // btn_borrar_usuario
             // 
@@ -753,53 +837,6 @@
             this.label26.TabIndex = 0;
             this.label26.Text = "Id";
             // 
-            // btn_cambiar_rol
-            // 
-            this.btn_cambiar_rol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cambiar_rol.Location = new System.Drawing.Point(341, 129);
-            this.btn_cambiar_rol.Name = "btn_cambiar_rol";
-            this.btn_cambiar_rol.Size = new System.Drawing.Size(110, 34);
-            this.btn_cambiar_rol.TabIndex = 20;
-            this.btn_cambiar_rol.Text = "Cambiar";
-            this.btn_cambiar_rol.UseVisualStyleBackColor = true;
-            this.btn_cambiar_rol.Click += new System.EventHandler(this.btn_cambiar_rol_Click);
-            // 
-            // btn_buscar_usuario
-            // 
-            this.btn_buscar_usuario.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_buscar_usuario.Image = global::Presentación.Properties.Resources.zoom_9777349;
-            this.btn_buscar_usuario.Location = new System.Drawing.Point(248, 26);
-            this.btn_buscar_usuario.Name = "btn_buscar_usuario";
-            this.btn_buscar_usuario.Size = new System.Drawing.Size(36, 33);
-            this.btn_buscar_usuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btn_buscar_usuario.TabIndex = 9;
-            this.btn_buscar_usuario.TabStop = false;
-            this.btn_buscar_usuario.Click += new System.EventHandler(this.btn_buscar_usuario_Click);
-            // 
-            // btn_buscar_accesorio
-            // 
-            this.btn_buscar_accesorio.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_buscar_accesorio.Image = global::Presentación.Properties.Resources.zoom_9777349;
-            this.btn_buscar_accesorio.Location = new System.Drawing.Point(248, 26);
-            this.btn_buscar_accesorio.Name = "btn_buscar_accesorio";
-            this.btn_buscar_accesorio.Size = new System.Drawing.Size(36, 33);
-            this.btn_buscar_accesorio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btn_buscar_accesorio.TabIndex = 9;
-            this.btn_buscar_accesorio.TabStop = false;
-            this.btn_buscar_accesorio.Click += new System.EventHandler(this.btn_buscar_accesorio_Click);
-            // 
-            // btn_buscar_bicicletas
-            // 
-            this.btn_buscar_bicicletas.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_buscar_bicicletas.Image = global::Presentación.Properties.Resources.zoom_9777349;
-            this.btn_buscar_bicicletas.Location = new System.Drawing.Point(248, 26);
-            this.btn_buscar_bicicletas.Name = "btn_buscar_bicicletas";
-            this.btn_buscar_bicicletas.Size = new System.Drawing.Size(36, 33);
-            this.btn_buscar_bicicletas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btn_buscar_bicicletas.TabIndex = 9;
-            this.btn_buscar_bicicletas.TabStop = false;
-            this.btn_buscar_bicicletas.Click += new System.EventHandler(this.btn_buscar_bicicletas_Click);
-            // 
             // btn_cerrar_sesion
             // 
             this.btn_cerrar_sesion.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -821,43 +858,9 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // btn_bicicletas
-            // 
-            this.btn_bicicletas.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_bicicletas.Image = global::Presentación.Properties.Resources.motor_15611410;
-            this.btn_bicicletas.Margin = new System.Windows.Forms.Padding(0, 130, 0, 0);
-            this.btn_bicicletas.Name = "btn_bicicletas";
-            this.btn_bicicletas.Size = new System.Drawing.Size(104, 49);
-            this.btn_bicicletas.Text = "Bicicletas";
-            this.btn_bicicletas.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.btn_bicicletas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_bicicletas.Click += new System.EventHandler(this.btn_bicicletas_Click);
-            // 
-            // btn_accesorios
-            // 
-            this.btn_accesorios.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_accesorios.Image = global::Presentación.Properties.Resources.helmet_5529439;
-            this.btn_accesorios.Margin = new System.Windows.Forms.Padding(0, 40, 0, 0);
-            this.btn_accesorios.Name = "btn_accesorios";
-            this.btn_accesorios.Size = new System.Drawing.Size(104, 49);
-            this.btn_accesorios.Text = "Accesorios";
-            this.btn_accesorios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_accesorios.Click += new System.EventHandler(this.btn_accesorios_Click);
-            // 
-            // btn_usuarios
-            // 
-            this.btn_usuarios.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_usuarios.Image = global::Presentación.Properties.Resources.people_2406416;
-            this.btn_usuarios.Margin = new System.Windows.Forms.Padding(0, 40, 0, 0);
-            this.btn_usuarios.Name = "btn_usuarios";
-            this.btn_usuarios.Size = new System.Drawing.Size(104, 49);
-            this.btn_usuarios.Text = "Usuarios";
-            this.btn_usuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_usuarios.Visible = false;
-            this.btn_usuarios.Click += new System.EventHandler(this.btn_usuarios_Click);
-            // 
             // Menu
             // 
+            this.AccessibleName = "Menu";
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(959, 481);
@@ -869,7 +872,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbl_username);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label_titulo);
+            this.Controls.Add(this.lbl_titulo);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -880,13 +883,13 @@
             this.menuStrip1.PerformLayout();
             this.panel_bicicletas.ResumeLayout(false);
             this.panel_bicicletas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_bicicletas)).EndInit();
             this.panel_accesorios.ResumeLayout(false);
             this.panel_accesorios.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_accesorio)).EndInit();
             this.panel_usuarios.ResumeLayout(false);
             this.panel_usuarios.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_usuario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_accesorio)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_bicicletas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_cerrar_sesion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -896,7 +899,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label_titulo;
+        private System.Windows.Forms.Label lbl_titulo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem btn_bicicletas;

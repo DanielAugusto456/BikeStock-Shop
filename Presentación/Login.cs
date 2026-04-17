@@ -33,9 +33,8 @@ namespace Presentación
                     {
                         MessageBox.Show("¡Bienvenido, " + txt_username.Text + "!", "Login exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Menu menu = new Menu(usuario.Username, usuario.Rol == 1 ? "Administrador" : "Usuario");
-                        menu.Owner = this;
-                        this.Hide();
                         menu.Show();
+                        this.Hide();
                     }
                     else
                     {

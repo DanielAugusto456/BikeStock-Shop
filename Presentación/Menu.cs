@@ -38,7 +38,8 @@ namespace Presentación
 
         private void btn_cerrar_sesion_Click(object sender, EventArgs e)
         {
-            this.Owner.Show();
+            Login login = new Login();
+            login.Show();
             this.Close();
         }
 

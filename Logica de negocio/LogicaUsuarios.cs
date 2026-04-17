@@ -1,38 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Datos;
 
 namespace Logica_de_negocio
 {
     public class LogicaUsuarios
     {
-        Datos.UserRepository repositorio = new Datos.UserRepository();
+        private readonly IUserRepository _repositorio;
+
+        public LogicaUsuarios(IUserRepository repositorio)
+        {
+            _repositorio = repositorio ?? throw new ArgumentNullException(nameof(repositorio));
+        }
+
+        public LogicaUsuarios() : this(new UserRepository())
+        {
+        }
 
         public void IngresarUsuario(string username, string password, int rol)
         {
-            repositorio.IngresarUsuario(username, password, rol);
+            _repositorio.IngresarUsuario(username, password, rol);
         }
 
-        public Datos.UserRepository.Usuario ValidarUsuario(string username, string password)
+        public UserRepository.Usuario ValidarUsuario(string username, string password)
         {
-            return repositorio.ValidarUsuario(username, password);
+            return _repositorio.ValidarUsuario(username, password);
         }
 
         public void ActualizarUsuario(int id, string username, string password, int rol)
         {
-            repositorio.ActualizarUsuario(id, username, password, rol);
+            _repositorio.ActualizarUsuario(id, username, password, rol);
         }
 
         public void EliminarUsuario(int id)
         {
-            repositorio.EliminarUsuario(id);
+            _repositorio.EliminarUsuario(id);
         }
 
-        public List<Datos.UserRepository.Usuario> BuscarUsuarios(string nombre) 
+        public List<UserRepository.Usuario> BuscarUsuarios(string nombre)
         {
-            return repositorio.BuscarUsuarios(nombre);
+            return _repositorio.BuscarUsuarios(nombre);
         }
     }
 }

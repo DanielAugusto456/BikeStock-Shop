@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Datos
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
         public class Usuario
         {
