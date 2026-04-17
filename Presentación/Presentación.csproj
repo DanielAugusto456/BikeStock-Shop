@@ -46,8 +46,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VentAccesorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentAccesorio.Designer.cs">
+      <DependentUpon>VentAccesorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentBicicletas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentBicicletas.Designer.cs">
+      <DependentUpon>VentBicicletas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentStock.Designer.cs">
+      <DependentUpon>VentStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentUsuarios.Designer.cs">
+      <DependentUpon>VentUsuarios.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -56,7 +98,20 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="VentAccesorio.resx">
+      <DependentUpon>VentAccesorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentBicicletas.resx">
+      <DependentUpon>VentBicicletas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentStock.resx">
+      <DependentUpon>VentStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentUsuarios.resx">
+      <DependentUpon>VentUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -69,6 +124,40 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Datos\Datos.csproj">
+      <Project>{0d37a68d-d4df-4ef7-965c-7bf6c95e3825}</Project>
+      <Name>Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logica de negocio\Logica de negocio.csproj">
+      <Project>{e1606c50-9956-44a6-9c69-91dd2236d7e8}</Project>
+      <Name>Logica de negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\motor_15611410.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\helmet_5529439.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\people_2406416.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\out_13705339.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifying-glass_8690504.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom_9777349.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\correct_8638664.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accept_2550322.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
