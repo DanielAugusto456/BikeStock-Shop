@@ -29,5 +29,10 @@ namespace Logica_de_negocio
         {
             repositorio.EliminarUsuario(id);
         }
+
+        public List<Datos.UserRepository.Usuario> BuscarUsuarios(string nombre) 
+        {
+            return repositorio.BuscarUsuarios(nombre);
+        }
     }
 }

@@ -78,6 +78,12 @@
     <Compile Include="VentStock.Designer.cs">
       <DependentUpon>VentStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="VentUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentUsuarios.Designer.cs">
+      <DependentUpon>VentUsuarios.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VentStock.resx">
       <DependentUpon>VentStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentUsuarios.resx">
+      <DependentUpon>VentUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

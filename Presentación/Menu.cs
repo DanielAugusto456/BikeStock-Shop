@@ -176,6 +176,7 @@ namespace Presentación
             limpiar_campos_bicicleta();
             data = false;
             panel_accesorios.Visible = false;
+            panel_usuarios.Visible = false;
             panel_bicicletas.Visible = true;
         }
 
@@ -186,6 +187,7 @@ namespace Presentación
             limpiar_campos_accesorio();
             data = false;
             panel_bicicletas.Visible = false;
+            panel_usuarios.Visible = false;
             panel_accesorios.Visible = true;
         }
 
@@ -286,6 +288,120 @@ namespace Presentación
             else
             {
                 MessageBox.Show("Seleccione un accesorio para eliminarlo.", "Accesorio no seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        // panel de usuarios
+        private void btn_usuarios_Click(object sender, EventArgs e)
+        {
+            data = false;
+            limpiar_campos_usuario();
+
+            panel_bicicletas.Visible = false;
+            panel_accesorios.Visible = false;
+            panel_usuarios.Visible = true;
+        }
+
+        private void limpiar_campos_usuario()
+        {
+            lbl_id_usuario.Text = "";
+            txt_username.Clear();
+            txt_password.Clear();
+            txt_rol.Clear();
+            data = false;
+        }   
+
+        private bool verificar_campos_usuario()
+        {
+            if (string.IsNullOrWhiteSpace(txt_username.Text) ||
+                string.IsNullOrWhiteSpace(txt_password.Text) ||
+                string.IsNullOrWhiteSpace(txt_rol.Text))
+            {
+                MessageBox.Show("Por favor, complete todos los campos del usuario.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
+
+        private void btn_buscar_usuario_Click(object sender, EventArgs e)
+        {
+            VentUsuarios ventUsuarios = new VentUsuarios();
+            ventUsuarios.Owner = this;
+            ventUsuarios.ShowDialog();
+
+            if (ventUsuarios.data)
+            {
+                int id = ventUsuarios._id;
+                lbl_id_usuario.Text = id.ToString();
+                txt_username.Text = ventUsuarios._nombre;
+                txt_password.Text = ventUsuarios._password;
+                txt_rol.Text = ventUsuarios._rol;
+                data = true;
+            }
+        }
+
+        private void btn_cambiar_rol_Click(object sender, EventArgs e)
+        {
+            if (txt_rol.Text == "Administrador")
+            {
+                txt_rol.Text = "Usuario";
+            }
+            else
+            {
+                txt_rol.Text = "Administrador";
+            }
+        }
+
+        private void btn_crear_usuario_Click(object sender, EventArgs e)
+        {
+            if (!data)
+            {
+                if (verificar_campos_usuario())
+                {
+                    LogicaUsuarios.IngresarUsuario(txt_username.Text, txt_password.Text, txt_rol.Text == "Administrador" ? 1 : 0);
+                    MessageBox.Show("Usuario creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpiar_campos_usuario();
+                }
+            }
+            else
+            {
+                MessageBox.Show("El usuario ya existe. Por favor, limpie los campos para crear un nuevo usuario.", "Usuario existente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btn_actualizar_usuario_Click(object sender, EventArgs e)
+        {
+            if (data)
+            {
+                if (verificar_campos_usuario())
+                {
+                    LogicaUsuarios.ActualizarUsuario(int.Parse(lbl_id_usuario.Text), txt_username.Text, txt_password.Text, txt_rol.Text == "Administrador" ? 1 : 0);
+                    MessageBox.Show("Usuario actualizado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpiar_campos_usuario();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un usuario para actualizar su información.", "Usuario no seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);  
+            }
+        }
+
+        private void btn_limpiar_usuario_Click(object sender, EventArgs e)
+        {
+            limpiar_campos_usuario();
+        }
+
+        private void btn_borrar_usuario_Click(object sender, EventArgs e)
+        {
+            if (data)
+            {
+                LogicaUsuarios.EliminarUsuario(int.Parse(lbl_id_usuario.Text));
+                MessageBox.Show("Usuario eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                limpiar_campos_usuario();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un usuario para eliminarlo.", "Usuario no seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

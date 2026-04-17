@@ -12,6 +12,7 @@ namespace Datos
     {
         public class Usuario
         {
+            public int Id { get; set; }
             public string Username { get; set; }
             public string Password { get; set; }
             public int Rol { get; set; }
@@ -96,6 +97,35 @@ namespace Datos
                     cmd.ExecuteNonQuery();
                 }
             }
+        }
+
+        public List<Usuario> BuscarUsuarios(string nombre) 
+        {
+            string query = "exec sp_BuscarUsuario @Username = @A1";
+            List<Usuario> usuarios = new List<Usuario>();
+            using (SqlConnection cxn = new SqlConnection(cnn.db)) 
+            {
+                cxn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, cxn)) 
+                {
+                    cmd.Parameters.AddWithValue("@A1", nombre);
+                    using (SqlDataReader rd = cmd.ExecuteReader()) 
+                    {
+                        while (rd.Read())
+                        {
+                            Usuario usuario = new Usuario
+                            {
+                                Id = Convert.ToInt32(rd["Id"]),
+                                Username = rd["Username"].ToString(),
+                                Password = rd["Password"].ToString(),
+                                Rol = Convert.ToInt32(rd["Rol"])
+                            };
+                            usuarios.Add(usuario);
+                        }
+                    }
+                }
+            }
+            return usuarios;
         }
     }
 }
